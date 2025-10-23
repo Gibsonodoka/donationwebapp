@@ -9,24 +9,8 @@
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
 
-  <!-- NAVBAR -->
-  <nav class="bg-white shadow-sm py-4">
-    <div class="max-w-6xl mx-auto flex justify-between items-center px-6">
-      <a href="{{ route('home') }}" class="text-xl font-bold text-blue-700">Friends of the Battalion</a>
-      <div class="flex items-center gap-6 text-sm font-medium">
-        @auth
-          <a href="{{ route('dashboard') }}" class="text-gray-700 hover:text-blue-600">Dashboard</a>
-          <form action="{{ route('logout') }}" method="POST" class="inline">
-            @csrf
-            <button type="submit" class="text-gray-700 hover:text-blue-600">Logout</button>
-          </form>
-        @else
-          <a href="{{ route('login') }}" class="text-gray-700 hover:text-blue-600">Login</a>
-          <a href="{{ route('register') }}" class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg">Join Now</a>
-        @endauth
-      </div>
-    </div>
-  </nav>
+  <!-- NAVBAR COMPONENT -->
+  <x-main-navbar />
 
   <!-- HERO SECTION -->
   <section class="relative bg-gray-900 text-white">
@@ -75,7 +59,6 @@
       </div>
     @endif
 
-    <!-- Accordion Donation Options -->
     <div class="space-y-4">
       @foreach([
         [
@@ -131,7 +114,6 @@
                 </div>
                 <p class="text-sm text-gray-600 font-mono truncate">{{ $wallet[1] }}</p>
 
-                <!-- Upload receipt form -->
                 <form action="{{ route('donations.store') }}" method="POST" enctype="multipart/form-data" class="mt-3 space-y-2">
                   @csrf
                   <input type="hidden" name="support_area" value="{{ $donation[0] }}">
@@ -153,7 +135,6 @@
       @endforeach
     </div>
 
-    <!-- Join Program Button BELOW the whole accordion -->
     <div class="text-center mt-10">
       @auth
         <a href="{{ route('dashboard') }}"
@@ -188,17 +169,8 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="bg-gray-900 text-gray-300 py-8">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <p class="text-sm">&copy; {{ date('Y') }} Friends of the Battalion. All rights reserved.</p>
-      <div class="flex justify-center gap-4 mt-4 text-sm">
-        <a href="#" class="hover:text-white">Privacy Policy</a>
-        <a href="#" class="hover:text-white">Terms of Service</a>
-        <a href="#how-it-works" class="hover:text-white">Learn More</a>
-      </div>
-    </div>
-  </footer>
+  <!-- FOOTER COMPONENT -->
+  <x-main-footer />
 
 </body>
 </html>
