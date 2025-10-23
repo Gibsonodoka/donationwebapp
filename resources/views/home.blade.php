@@ -151,23 +151,64 @@
   </section>
 
   <!-- HOW IT WORKS -->
-  <section id="how-it-works" class="max-w-5xl mx-auto mt-20 px-6 pb-24">
-    <h2 class="text-2xl font-semibold mb-8">How It Works</h2>
-    <div class="grid md:grid-cols-3 gap-8 text-gray-700">
-      <div>
-        <h3 class="text-lg font-semibold mb-2">1. Choose a support area</h3>
-        <p>Pick the causes you care about most and view their donation wallets.</p>
+<section id="how-it-works" class="relative py-24 bg-gradient-to-br from-blue-50 via-white to-blue-100 overflow-hidden">
+  <div class="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-10"></div>
+
+  <div class="max-w-6xl mx-auto px-6 relative z-10 text-center">
+    <h2 class="text-4xl font-extrabold text-gray-800 mb-6 tracking-tight">
+      How It Works
+    </h2>
+    <p class="text-gray-600 max-w-2xl mx-auto mb-16 text-lg">
+      Simple steps to support the causes you care about — securely and transparently.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-10">
+      <!-- Step 1 -->
+      <div class="group bg-white shadow-md hover:shadow-xl rounded-2xl p-8 transition transform hover:-translate-y-2 duration-300">
+        <div class="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 text-xl font-bold">
+          1
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-3 group-hover:text-blue-600 transition">
+          Choose a Support Area
+        </h3>
+        <p class="text-gray-600">
+          Pick the causes you care about most and view their donation wallets.
+        </p>
       </div>
-      <div>
-        <h3 class="text-lg font-semibold mb-2">2. Send your crypto contribution</h3>
-        <p>Use any wallet app to send your preferred cryptocurrency safely.</p>
+
+      <!-- Step 2 -->
+      <div class="group bg-white shadow-md hover:shadow-xl rounded-2xl p-8 transition transform hover:-translate-y-2 duration-300">
+        <div class="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-green-100 text-green-600 text-xl font-bold">
+          2
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-3 group-hover:text-green-600 transition">
+          Send Your Crypto Contribution
+        </h3>
+        <p class="text-gray-600">
+          Use any wallet app to send your preferred cryptocurrency safely.
+        </p>
       </div>
-      <div>
-        <h3 class="text-lg font-semibold mb-2">3. Upload your payment receipt</h3>
-        <p>After payment, upload a screenshot of your transaction for confirmation.</p>
+
+      <!-- Step 3 -->
+      <div class="group bg-white shadow-md hover:shadow-xl rounded-2xl p-8 transition transform hover:-translate-y-2 duration-300">
+        <div class="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-purple-100 text-purple-600 text-xl font-bold">
+          3
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-3 group-hover:text-purple-600 transition">
+          Upload Your Payment Receipt
+        </h3>
+        <p class="text-gray-600">
+          After payment, upload a screenshot of your transaction for confirmation.
+        </p>
       </div>
     </div>
-  </section>
+  </div>
+
+  <!-- Decorative animation circles -->
+  <div class="absolute top-10 left-10 w-24 h-24 bg-blue-200 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+  <div class="absolute bottom-10 right-10 w-32 h-32 bg-green-200 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+</section>
+
 
   <!-- FOOTER COMPONENT -->
   <x-main-footer />
