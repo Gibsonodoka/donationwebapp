@@ -193,4 +193,219 @@
         <div class="absolute top-10 left-10 w-24 h-24 bg-blue-200 rounded-full blur-3xl opacity-30 animate-pulse"></div>
         <div class="absolute bottom-10 right-10 w-32 h-32 bg-green-200 rounded-full blur-3xl opacity-30 animate-pulse"></div>
     </section>
+
+        <!-- OUR PROJECTS SECTION -->
+    <section class="px-6 md:px-20 py-20 bg-white">
+        <div class="flex justify-between items-center mb-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+                Our Projects
+            </h2>
+            <a href="{{ url('/') }}"
+               class="text-gray-700 hover:text-black text-sm md:text-base font-medium underline underline-offset-4">
+                See all projects
+            </a>
+        </div>
+
+        @php
+            $projects = [
+                [
+                    'title' => 'Frontline Support Mission',
+                    'desc' => 'Providing tactical support, logistics, and field equipment to aid soldiers in active zones.',
+                    'img'  => asset('images/support.jpeg'),
+                ],
+                [
+                    'title' => 'Tactical Drone Assistance',
+                    'desc' => 'Deploying drones to support strategic operations, supply drops, and surveillance to protect our troops.',
+                    'img'  => asset('images/ukd.jpg'),
+                ],
+                [
+                    'title' => 'Relief & Medical Aid',
+                    'desc' => 'Sending emergency relief materials, medical kits, and protective equipment directly to the battlefield.',
+                    'img'  => asset('images/rel.jpg'),
+                ],
+                [
+                    'title' => 'Military Families Welfare',
+                    'desc' => 'Supporting the families of soldiers through housing, food aid, and educational support for their children.',
+                    'img'  => 'https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=800&q=60',
+                ],
+                [
+                    'title' => 'Rebuilding Military Outposts',
+                    'desc' => 'Helping reconstruct damaged posts and operational bases to strengthen ground defense and supply lines.',
+                    'img'  => 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=60',
+                ],
+                [
+                    'title' => 'Logistics & Supply Line',
+                    'desc' => 'Ensuring steady flow of essential supplies like food, water, and tactical gear to soldiers on the frontlines.',
+                    'img'  => asset('images/log.jpg'),
+                ],
+            ];
+        @endphp
+
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            @foreach($projects as $project)
+                <div class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow overflow-hidden border border-gray-100">
+                    <div class="relative w-full h-56 md:h-60">
+                        <img src="{{ $project['img'] }}" alt="{{ $project['title'] }}"
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-2">
+                            {{ $project['title'] }}
+                        </h3>
+                        <p class="text-gray-600 text-sm md:text-base">
+                            {{ $project['desc'] }}
+                        </p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </section>
+
+    <section id="ukraine-support" class="relative py-20 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800">
+  <div class="max-w-7xl mx-auto px-4">
+    <!-- Header -->
+    <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-12 gap-8">
+      <div>
+        <h2 class="text-3xl font-bold text-blue-800 dark:text-blue-400">
+          Government support to Ukraine: Type of assistance (€ billion)
+        </h2>
+        <p class="text-gray-700 dark:text-gray-300 mt-1 text-sm">
+          Allocations January 24, 2022 to August 31, 2025. Data on 42 donors.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-3xl font-bold text-blue-800 dark:text-blue-400">
+          Government support to Ukraine: By donor GDP
+        </h2>
+        <p class="text-gray-700 dark:text-gray-300 mt-1 text-sm">
+          Allocations January 24, 2022 to August 31, 2025. Data on 27 EU Member States.
+        </p>
+      </div>
+    </div>
+
+    <!-- Charts Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+      <!-- Left Chart -->
+      <div class="bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-lg p-8 backdrop-blur-sm">
+        <div class="flex flex-wrap gap-4 mb-6 text-sm font-medium">
+          <div class="flex items-center gap-2"><span class="w-3 h-3 bg-orange-500 rounded-sm"></span>Military</div>
+          <div class="flex items-center gap-2"><span class="w-3 h-3 bg-blue-400 rounded-sm"></span>Financial</div>
+          <div class="flex items-center gap-2"><span class="w-3 h-3 bg-blue-800 rounded-sm"></span>Humanitarian</div>
+        </div>
+
+        @php
+          $aidAllocations = [
+            ['country' => 'United States', 'military' => 64.6, 'financial' => 46.6, 'humanitarian' => 2.0],
+            ['country' => 'EU (Commission and Council)', 'military' => 0, 'financial' => 66.9, 'humanitarian' => 1.0],
+            ['country' => 'Germany', 'military' => 17.7, 'financial' => 0.5, 'humanitarian' => 0.2],
+          ];
+          $maxAid = max(array_map(fn($a) => ($a['military'] ?? 0) + ($a['financial'] ?? 0) + ($a['humanitarian'] ?? 0), $aidAllocations));
+        @endphp
+
+        <div class="space-y-6">
+          @foreach ($aidAllocations as $item)
+            @php
+              $militaryPercent = ($item['military'] / $maxAid) * 100;
+              $financialPercent = ($item['financial'] / $maxAid) * 100;
+              $humanitarianPercent = ($item['humanitarian'] / $maxAid) * 100;
+            @endphp
+            <div class="aid-bar opacity-0 translate-y-3 transition-all duration-700"
+                 data-military="{{ $militaryPercent }}"
+                 data-financial="{{ $financialPercent }}"
+                 data-humanitarian="{{ $humanitarianPercent }}">
+              <div class="flex justify-between mb-1 text-gray-800 dark:text-gray-200 font-medium">
+                <span>{{ $item['country'] }}</span>
+              </div>
+              <div class="flex h-6 w-full overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700">
+                <div class="bar-military bg-gradient-to-r from-orange-400 to-orange-600 text-xs pr-1 text-white flex items-center justify-end transition-all duration-[1500ms] ease-out" style="width:0%">
+                  {{ $item['military'] ?: '' }}
+                </div>
+                <div class="bar-financial bg-gradient-to-r from-blue-300 to-blue-500 text-xs pr-1 text-white flex items-center justify-end transition-all duration-[1500ms] ease-out" style="width:0%">
+                  {{ $item['financial'] ?: '' }}
+                </div>
+                <div class="bar-humanitarian bg-gradient-to-r from-blue-700 to-blue-900 text-xs pr-1 text-white flex items-center justify-end transition-all duration-[1500ms] ease-out" style="width:0%">
+                  {{ $item['humanitarian'] ?: '' }}
+                </div>
+              </div>
+            </div>
+          @endforeach
+        </div>
+      </div>
+
+      <!-- Right Chart -->
+      <div class="bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-lg p-8 backdrop-blur-sm">
+        <div class="flex flex-wrap gap-4 mb-6 text-sm font-medium">
+          <div class="flex items-center gap-2"><span class="w-3 h-3 bg-blue-800 rounded-sm"></span>Bilateral aid (% GDP)</div>
+          <div class="flex items-center gap-2"><span class="w-3 h-3 bg-blue-400 rounded-sm"></span>EU aid (% GDP)</div>
+        </div>
+
+        @php
+          $gdpAid = [
+            ['country' => 'Denmark', 'bilateral' => 2.9, 'euShare' => 0.5],
+            ['country' => 'Estonia', 'bilateral' => 2.8, 'euShare' => 0.5],
+            ['country' => 'Lithuania', 'bilateral' => 2.2, 'euShare' => 0.4],
+          ];
+        @endphp
+
+        <div class="space-y-6">
+          @foreach ($gdpAid as $item)
+            @php
+              $total = $item['bilateral'] + $item['euShare'];
+              $bilateralPercent = ($item['bilateral'] / $total) * 100;
+              $euPercent = ($item['euShare'] / $total) * 100;
+            @endphp
+            <div class="gdp-bar opacity-0 translate-y-3 transition-all duration-700"
+                 data-bilateral="{{ $bilateralPercent }}"
+                 data-eu="{{ $euPercent }}">
+              <div class="flex justify-between mb-1 text-gray-800 dark:text-gray-200 font-medium">
+                <span>{{ $item['country'] }}</span>
+              </div>
+              <div class="flex h-6 w-full overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700">
+                <div class="bar-bilateral bg-gradient-to-r from-blue-700 to-blue-900 text-xs pr-1 text-white flex items-center justify-end transition-all duration-[1500ms] ease-out" style="width:0%">
+                  {{ $item['bilateral'] }}%
+                </div>
+                <div class="bar-eu bg-gradient-to-r from-blue-300 to-blue-500 text-xs pr-1 text-white flex items-center justify-end transition-all duration-[1500ms] ease-out" style="width:0%">
+                  {{ $item['euShare'] }}%
+                </div>
+              </div>
+            </div>
+          @endforeach
+        </div>
+      </div>
+    </div>
+
+    <p class="text-xs text-gray-600 dark:text-gray-400 mt-12 text-center italic">
+      Source: Trebesch et al. (2023) “The Ukraine Support Tracker” Kiel WP
+    </p>
+  </div>
+</section>
+
+<!-- Animation Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-y-3');
+
+          const military = entry.target.dataset.military;
+          const financial = entry.target.dataset.financial;
+          const humanitarian = entry.target.dataset.humanitarian;
+          const bilateral = entry.target.dataset.bilateral;
+          const eu = entry.target.dataset.eu;
+
+          if (military) entry.target.querySelector('.bar-military').style.width = military + '%';
+          if (financial) entry.target.querySelector('.bar-financial').style.width = financial + '%';
+          if (humanitarian) entry.target.querySelector('.bar-humanitarian').style.width = humanitarian + '%';
+          if (bilateral) entry.target.querySelector('.bar-bilateral').style.width = bilateral + '%';
+          if (eu) entry.target.querySelector('.bar-eu').style.width = eu + '%';
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.aid-bar, .gdp-bar').forEach(el => observer.observe(el));
+  });
+</script>
+
 @endsection
