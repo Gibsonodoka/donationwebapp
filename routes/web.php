@@ -36,6 +36,8 @@ Route::middleware('auth')->group(function () {
     // User Dashboard
     Route::get('/user/dashboard', [UserDashboardController::class, 'index'])
         ->name('user.dashboard');
+    Route::get('/user/support', [UserDashboardController::class, 'support'])
+    ->name('user.support');
 });
 
 // 🧠 Admin Dashboard (restricted by admin middleware)

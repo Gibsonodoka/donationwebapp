@@ -68,29 +68,29 @@
             @foreach([
                 [
                     'Medical Supplies Donation',
-                    '$40/week',
+                    '$200/week',
                     [
-                        ['BTC', '1A1zP1eP5QefizMPFtTL5SLmv7DivfNa'],
-                        ['ETH', '0x742d35Cc6634C0532925a3b844b5B875a7a7a7a7'],
-                        ['USDT (ERC20)', '0x842d35Cc6634C0532925a3b844b5B875a7a7a7a7']
+                        ['BTC', 'bc1qgxjv84efhsh3736uxp2wrspahnlma7wfz5syd8'],
+                        ['ETH', '0xD42E0A61A2096163851C9905aC46a7c24C0B6852'],
+                        ['USDT (ERC20)', '0xD42E0A61A2096163851C9905aC46a7c24C0B6852']
                     ]
                 ],
                 [
                     'Food Relief Donation',
-                    '$65/week',
+                    '$300/week',
                     [
-                        ['BTC', 'bc1qw508d6qeabcdxyz'],
-                        ['ETH', '0x98d35Cc6634C0532925a3b844b5B875a9b7a7a7'],
-                        ['USDT (ERC20)', '0x812d35Cc6634C0532925a3b844b5B875a7a7a7b3']
+                        ['BTC', 'bc1qgxjv84efhsh3736uxp2wrspahnlma7wfz5syd8'],
+                        ['ETH', '0xD42E0A61A2096163851C9905aC46a7c24C0B6852'],
+                        ['USDT (ERC20)', '0xD42E0A61A2096163851C9905aC46a7c24C0B6852']
                     ]
                 ],
                 [
                     'Drone Delivery Donation',
-                    '$100/week',
+                    '$450/week',
                     [
-                        ['BTC', 'bc1qw123abcde987xyz'],
-                        ['ETH', '0x742d35Cc6634C0532925a3b844b5B875abcaaabb'],
-                        ['USDT (ERC20)', '0x999d35Cc6634C0532925a3b844b5B875a7a7a7a1']
+                        ['BTC', 'bc1qgxjv84efhsh3736uxp2wrspahnlma7wfz5syd8'],
+                        ['ETH', '0xD42E0A61A2096163851C9905aC46a7c24C0B6852'],
+                        ['USDT (ERC20)', '0xD42E0A61A2096163851C9905aC46a7c24C0B6852']
                     ]
                 ]
             ] as $donation)
@@ -155,16 +155,17 @@
         </div>
     </section>
 
-   <!-- HOW IT WORKS -->
+  <!-- HOW IT WORKS -->
 <section id="how-it-works"
          class="relative py-20 md:py-28 bg-gradient-to-br from-blue-50 via-white to-blue-50 overflow-hidden">
+
     <div class="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-10"></div>
 
     <div class="max-w-6xl mx-auto px-6 relative z-10 text-center">
         <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-5 tracking-tight">
             How It Works
         </h2>
-        <p class="text-gray-600 max-w-2xl mx-auto mb-14 md:mb-20 text-base md:text-lg leading-relaxed">
+        <p class="text-gray-600 max-w-2xl mx-auto mb-16 md:mb-24 text-base md:text-lg leading-relaxed">
             Simple steps to support the causes you care about — securely and transparently.
         </p>
 
@@ -210,14 +211,11 @@
         </div>
     </div>
 
-    <!-- Decorative Blurs -->
-    <div class="absolute top-12 left-12 w-24 h-24 bg-blue-200 rounded-full blur-3xl opacity-30 animate-pulse"></div>
-    <div class="absolute bottom-12 right-12 w-32 h-32 bg-green-200 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+
 </section>
 
-
     <!-- OUR PROJECTS SECTION -->
-<section class="px-6 md:px-20 py-16 md:py-24 bg-white mt-16 md:mt-24">
+<section class="px-6 md:px-20 py-16 md:py-24 bg-white">
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-6">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
             Our Projects

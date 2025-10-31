@@ -15,4 +15,12 @@ class UserDashboardController extends Controller
 
         return view('User.dashboard', compact('user', 'subscriptions', 'donations'));
     }
+
+    public function support()
+    {
+        $user = Auth::user();
+        $donations = Donation::where('user_id', $user->id)->latest()->get();
+
+        return view('User.support', compact('donations'));
+    }
 }
